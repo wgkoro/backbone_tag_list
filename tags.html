@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>タグをつけたりはずしたり</title>
+
+    <style type='text/css'>
+        body {
+            color   : #4D4D4D;
+            font-size   : 100%;
+        }
+
+        p {
+            margin-left : 1em;
+        }
+
+        #selected_tag_area {
+            border : 1px solid #000;
+            margin-bottom   : 0.5em;
+        }
+
+        #tag_list_area {
+            border : 1px solid blue;
+        }
+
+        .selected   {
+            color   : red;
+            font-weight : bold;
+        }
+    </style>
+
+    <script type='text/javascript' src='./js/jquery.js'></script>
+    <script type='text/javascript' src='./js/lodash.js'></script>
+    <script type='text/javascript' src='./js/backbone.js'></script>
+    <script type='text/javascript' src='./js/script.js'></script>
+</head>
+<body>
+
+    <h3>タグをつけたり外したり with Backbone.js</h3>
+
+    <div id='selected_tag_area'>
+        <p>選択されたタグ</p>
+        <ul id='selected_list'>
+            <li id='tag_all' style='color:blue;font-weight:bold;'>すべて</li>
+        </ul>
+    </div>
+
+    <div id='tag_list_area'>
+        <p>タグリスト <small>(クリックで選択/選択解除)</small></p>
+        <ul id='tag_list'>
+            <li>
+                <input type='hidden' name='tag_name_1' class='tag_name' value='ほげ'/>
+                <input type='hidden' name='tag_id_1' class='tag_id' value='1'/>
+                <input type='hidden' name='selected_1' class='tag_selected' value='0'/>
+                <a href='#' class='tag'>ほげ</a>
+            </li>
+
+            <li>
+                <input type='hidden' name='tag_name_2' class='tag_name' value='ふが'/>
+                <input type='hidden' name='tag_id_2' class='tag_id' value='2'/>
+                <input type='hidden' name='selected_2' class='tag_selected' value='0'/>
+                <a href='#' class='tag'>ふが</a>
+            </li>
+
+            <li>
+                <input type='hidden' name='tag_name_3' class='tag_name' value='ぴよ'/>
+                <input type='hidden' name='tag_id_3' class='tag_id' value='3'/>
+                <input type='hidden' name='selected_3' class='tag_selected' value='0'/>
+                <a href='#' class='tag'>ぴよ</a>
+            </li>
+        </ul>
+    </div>
+
+    <p>なかのひと → ブログ</p>
+    
+    <script type='text/template' id='tag_template'>
+    <li id='tag_<%- tag_id %>'><%- tag_name %></li>
+    </script>
+</body>
+</html>
